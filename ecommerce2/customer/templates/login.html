@@ -1,0 +1,64 @@
+{% extends 'layout.html' %}
+
+
+
+{% block title %}
+    <title>Login</title>
+{% endblock title %}
+
+{% block main %}
+<div class="container">
+
+    <div class="form-wrapper row p-5">
+    
+     <div class="col-6 offset-3 bg-warning">
+
+      
+    
+       <div class="display-3 text-dark text-center pb-4 font-weight-bold">LOGIN</div>
+                {% if fail %}
+                    <div id="alert alert-danger" role = "alert">
+                        Istifadeci adi ve ya sifre yanlisdir!
+                
+                    </div>
+                {% endif %}
+       <form method="POST">
+            {% csrf_token %}
+    
+            <div class="control-group">
+        
+            <input type="text" class="form-control" placeholder="Username"required="required"  name="username" />
+        
+                <p class="help-block text-danger"></p>
+        
+            </div>
+        
+            <div class="control-group">
+
+                    <input type="password" class="form-control" placeholder="Password" required="required" name="password" />   
+                        <p class="help-block text-danger"></p>
+        
+            </div>
+            <div class="row">
+                <div class="control-group col-6">
+                    <input id="remember" type="checkbox" name="remember" value="off">
+                    <label for="remember">Remember Me</label>
+                </div>
+                <div class="col-6 text-right">
+                    <a href="{% url 'customer:forgot-password' %}" class="text-dark">Forgot Password</a>
+                </div>
+            </div>
+        
+        <div>
+        
+    
+            <button class="btn btn-dark py-2 w-100 mb-3 px-4" type="submit" id="sendMessageButton">Login</button> </div>
+    
+        </form>
+    
+    </div>
+    
+     </div>
+    
+ </div>
+{% endblock main %}
