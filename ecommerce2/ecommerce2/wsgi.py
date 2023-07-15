@@ -12,7 +12,7 @@ import dotenv
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ecommerce2.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ecommerce.settings')
 dotenv.load_dotenv()
 
 application = get_wsgi_application()
